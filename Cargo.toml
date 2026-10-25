@@ -1,0 +1,48 @@
+[package]
+name = "localdeploy"
+version = "0.7.0"
+edition = "2021"
+description = "Painel desktop local-first para projetos e deploys locais"
+
+[features]
+default = ["desktop"]
+desktop = ["dep:dioxus", "dep:webbrowser"]
+
+[lib]
+name = "localdeploy"
+path = "src/lib.rs"
+
+[[bin]]
+name = "localdeploy"
+path = "src/main.rs"
+required-features = ["desktop"]
+
+[[bin]]
+name = "localdeploy-engine"
+path = "src/bin/engine.rs"
+
+[dependencies]
+dioxus = { version = "=0.7.10", features = ["desktop"], optional = true }
+dirs = "6"
+rusqlite = { version = "0.37", features = ["bundled"] }
+thiserror = "2"
+url = "2"
+serde_json = "1"
+serde = { version = "1", features = ["derive"] }
+toml = "0.8"
+webbrowser = { version = "1", optional = true }
+reqwest = { version = "0.12", default-features = false, features = ["blocking", "json", "rustls-tls"] }
+zip = "2"
+tokio = { version = "1", features = ["rt", "time"] }
+semver = "1"
+sha2 = "0.10"
+serde_yaml = "0.9"
+
+[dev-dependencies]
+tempfile = "3"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = true
+

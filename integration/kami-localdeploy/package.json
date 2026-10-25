@@ -1,0 +1,10 @@
+{
+  "name": "@kami-archs/localdeploy",
+  "version": "0.7.0",
+  "type": "module",
+  "main": "./index.mjs",
+  "types": "./index.d.ts",
+  "exports": { ".": { "types": "./index.d.ts", "import": "./index.mjs" }, "./panel": "./panel.mjs" },
+  "engines": { "node": ">=18" },
+  "files": ["index.mjs", "index.d.ts", "panel.mjs", "README.md"]
+}

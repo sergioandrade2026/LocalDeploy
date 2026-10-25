@@ -1,0 +1,18 @@
+{
+  "id": "kami-archs.localdeploy",
+  "version": "0.7.0",
+  "description": "Local commit testing engine for the Kami Archs IDE host",
+  "manifestKind": "integration-description",
+  "protocol": { "name": "jsonrpc-stdio", "version": 1 },
+  "process": {
+    "windows": "bin/localdeploy-engine.exe",
+    "linux": "bin/localdeploy-engine",
+    "arguments": ["--data-dir", "${ideDataDirectory}/localdeploy"],
+    "windowsHide": true,
+    "shell": false
+  },
+  "sdk": { "module": "sdk/index.mjs", "types": "sdk/index.d.ts" },
+  "renderer": { "module": "sdk/panel.mjs", "tag": "kami-deployments" },
+  "externalTools": { "git": "required for repository operations", "docker": "required for isolated web tests", "node": "required for native Node execution", "rust": "required for native Rust/Dioxus execution" },
+  "notes": "Descriptive manifest, not a verified Kami Archs plugin-loader format. The IDE host substitutes ideDataDirectory and supplies its IPC bridge."
+}

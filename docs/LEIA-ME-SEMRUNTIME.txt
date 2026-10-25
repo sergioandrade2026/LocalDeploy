@@ -1,0 +1,18 @@
+LocalDeploy 0.6.0 — pacote leve portátil
+
+1. Extraia todo o conteúdo desta pasta.
+2. Abra LocalDeploy.exe.
+
+Conexões: autorize GitHub pelo navegador. Novo projeto: cole a URL e clique em Criar e abrir. Preferências: personalize fonte, tema, sincronização, testes e ambiente. Configurações do projeto: cadastre variáveis pela interface.
+
+A pasta Data guarda a biblioteca portátil. Preserve portable.flag e todos os arquivos da pasta. Credenciais protegidas são vinculadas à sua conta do Windows. Veja ESTADO-DA-VERSAO.md.
+
+Este pacote inclui WebView2Loader.dll, que precisa permanecer ao lado do executável. Ele usa o Microsoft Edge WebView2 Runtime já instalado no Windows. Em instalações atuais do Windows 10/11 esse runtime normalmente já está presente.
+
+Se o aplicativo informar que o runtime WebView2 não está instalado, use o pacote completo distribuído com a pasta WebView2Runtime.
+
+Git for Windows é necessário para clonar e sincronizar projetos. Node.js e o gerenciador de pacotes do projeto são necessários para gerar previews.
+
+Fluxo principal: abra um projeto clonado, selecione um commit e clique em "Preparar build deste commit". Quando o build e os testes passarem, o botão "Preview" abre o artefato aprovado em localhost. Cada commit usa uma pasta isolada e o preview Vite é servido a partir do build compilado.
+
+GitHub Actions é opcional. Na tela do projeto, a seção "GitHub Actions" baixa e registra o runner oficial Windows para esse repositório. O GitHub solicitará um token com permissão para administrar Actions; ele não é salvo pelo LocalDeploy.
